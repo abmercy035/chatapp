@@ -1,0 +1,286 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+:root {
+  --bl: #000000;
+  --rb: royalblue;
+  --wh: white;
+  --rd: rgb(214, 4, 4);
+}
+
+*::-webkit-scrollbar {
+  width: 0;
+  display: none;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+.home__container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bl);
+}
+.home__container > * {
+  margin-bottom: 10px;
+}
+.home__header {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 6vw;
+  margin-bottom: 30px;
+  color: var(--rb);
+}
+.inp_label {
+  font-size: 4vw;
+  font-weight: 600;
+}
+.user__input {
+  padding: 10px;
+  width: 50%;
+  box-shadow: 0px 0px 4px black;
+  border: none;
+  border-radius: 5px;
+}
+.home__cta {
+  width: 25vw;
+  height: 5vh;
+  font-size: 14px;
+  cursor: pointer;
+  background-color: var(--bl);
+  color: var(--wh);
+  outline: none;
+  border: 1px var(--wh) solid;
+  border-radius: 5px;
+}
+
+#input_errMsg {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-size: 3.5vw;
+  text-shadow: -0px -1px 1px rgb(56, 55, 55);
+}
+.animate_input_errMsg {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-size: 3.5vw;
+  text-shadow: -0px -1px 1px rgb(56, 55, 55);
+  animation: shake 0.2s ease;
+}
+
+@keyframes shake {
+  0% {
+    padding: 0 9px 0 0;
+  }
+  50% {
+    padding: 0 0px 0 0;
+  }
+  70% {
+    padding: 0 0px 0 9px;
+  }
+  100% {
+    padding: 0 0px 0 0px;
+  }
+}
+
+.chat {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat__main {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  height: 90%;
+}
+
+.chat__sidebar {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+  align-content: center;
+  font-size: smaller;
+  justify-content: space-between;
+  gap: 10px;
+  color: var(--rb);
+  background-color: var(--bl);
+  text-align: center;
+}
+
+#profile {
+  width: 100%;
+  height: 15%;
+}
+
+.chat__header {
+  color: var(--wh);
+  font-size: 14px;
+  height: 5%;
+}
+
+.chat__users {
+  overflow: scroll;
+  height: 80%;
+  width: 80%;
+  text-align: left;
+  margin: 2px auto;
+  word-break: break-all;
+  scroll-behavior: smooth;
+  font-size: 14px;
+  font-variant-caps: all-petite-caps;
+}
+
+.chat__users::-webkit-scrollbar {
+  width: 0;
+}
+.chat__footer {
+  width: 100%;
+  padding: 10px;
+  background-color: var(--rb);
+  height: 10%;
+  box-shadow: 1px -3px 5px var(--bl);
+}
+.chat__users > * {
+  color: var(--wh);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.chat__users > *:nth-child(odd) {
+  color: var(--rd);
+}
+
+/* .online__users > * {
+  margin-bottom: 10px;
+  color: rgb(238, 102, 102);
+  font-style: italic;
+} 
+ */
+.chat__mainHeader {
+  width: 100%;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  background-color: var(--rb);
+}
+
+.leaveChat__btn {
+  padding: 10px;
+  width: 20vw;
+  border: none;
+  outline: none;
+  background-color: var(--rd);
+  cursor: pointer;
+  color: #eae3d2;
+  font-size: 2vw;
+}
+
+.message__container {
+  width: 100%;
+  height: 82vh;
+  background-color: var(--wh);
+  padding: 20px;
+  overflow-y: scroll;
+  box-shadow: inset 0px 1px 2px 0px var(--bl);
+
+}
+.message__container::-webkit-scrollbar {
+  width: 0;
+  display: none;
+}
+
+.message__container > * {
+  margin-bottom: 10px;
+}
+
+.form {
+  width: 100%;
+  height: 80%;
+  display: grid;
+  grid-template-columns: 19% 79%;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#form_right{
+  height: 80%;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  justify-content: space-between;
+}
+.message {
+  width: 65%;
+  height: 80%;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  outline: none;
+  padding: 15px;
+}
+.sendBtn {
+  width: 30%;
+  height: 80%;
+  background-color: rgb(0, 0, 0);
+  padding: 10px;
+  border: none;
+  outline: none;
+  color: #eae3d2;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+#fav {
+  width: 100%;
+  height: 80%;
+  background-color: rgb(0, 0, 0);
+  border: none;
+  outline: none;
+  color: #eae3d2;
+  cursor: pointer;
+  font-size: 12px;
+}
+.sendBtn:hover {
+  background-color: rgb(35, 36, 35);
+}
+.message__recipient {
+  background-color: var(--rd);
+  max-width: 300px;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 15px;
+  color: var(--bl);
+  margin-top: 2px;
+}
+.message__sender {
+  background-color: rgb(0, 0, 0);
+  max-width: 300px;
+  padding: 10px;
+  border-radius: 10px;
+  margin-left: auto;
+  font-size: 15px;
+  color: var(--rb);
+  margin-top: 2px;
+}
+.message__chats > p {
+  font-size: 13px;
+}
+.sender__name {
+  text-align: right;
+  margin-top: 2px;
+  color: var(--rd);
+}
+
+.message__status {
+  font-size: 13px;
+  font-style: italic;
+  opacity: 0.8;
+} 
