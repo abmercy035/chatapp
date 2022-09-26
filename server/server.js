@@ -10,24 +10,32 @@ const axios = require("axios");
 const bodyParser = require("body-parser");
 const socketIO = require("socket.io")(http, {
   cors: {
-    origin: "http://127.0.0.1:3000" || "http://localhost:3000",
+    origin: "http://127.0.0.1:3000",
   },
 });
 
-app.use(cors());
-// app.use(bodyParser());
+var corsOptions = {
+  origin: "http://127.0.0.1:3000",
+};
 
+app.use(cors(corsOptions));
+app.use(express.urlencoded({
+  extended : true}
+));
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*")
+}) 
+
+// app.use(bodyParser());
 let users = [];
 
 
-app.post("/chatsDB", function (req, res) {
+app.post("/chats", function (req, res) {
   console.log(req.body)
-  fs.writeFile(path.join(__dirname, "DB.json"), Array.from([req.body]), (err) => {
-    console.log("successs");
+  fs.writeFile(path.join(__dirname, "DB.json"), "hey", (err) => {
+    // console.log("successs");
   });
 });
-
-
 
 socketIO.on("connection", (socket) => {
   
@@ -35,12 +43,11 @@ socketIO.on("connection", (socket) => {
     if (!exists) {
       console.log(path.join(__dirname, "DB.json"));
       fs.writeFile(path.join(__dirname, "DB.json"), '{"name" : "Abraham"}', (err) => {
-        console.log("successs");
+        // console.log("successs");
       });
     } else {
       fs.readFile(path.join(__dirname, "DB.json"), "utf8", (err, data) => {
         socket.emit("chatsDB", data);
-        console.log(data);
         });
       }
     });

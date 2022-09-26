@@ -5,8 +5,23 @@ export default function Home({ socket }) {
   const navigate = useNavigate();
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  const data = {
+    name: "geeksforgeeks",
+    job: "Content Writer",
+    topic: "Node.js",
+  };
 
-  axios.post("http://localhost:4000/chatsDB", {"hey" : "hey"} );
+fetch("http://locahost:4000/chats", {
+  method: "post",
+  "Access-Control-Allow-Origin": "*",
+  headers: {
+       "Content-Type": "application/json"
+  },
+  body: JSON.stringify(data)
+})
+
+  // axios.post("server/DB.json", data);
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -20,6 +35,7 @@ export default function Home({ socket }) {
           input_errMsg.style.color = "red";
           input_errMsg.textContent = "UserName or Password is inCorrect";
           input_errMsg.className = "animate_input_errMsg";
+
           setTimeout(() => {
             input_errMsg.className = "";
           }, 1000);
